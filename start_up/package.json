@@ -1,0 +1,12 @@
+{
+  "name": "ai-startup-form",
+  "version": "1.0.0",
+  "description": "AI Startup 活动报名表单与海报",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
