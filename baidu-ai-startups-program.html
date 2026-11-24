@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baidu AI Startups Program</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #0a0a0f;
+      --card: #12121a;
+      --border: #343449;
+      --text: #e8e8ed;
+      --muted: #a7a7bc;
+      --accent: #5356de;
+      --accent-hover: #484bc8;
+      --focus: #9297ff;
+      --success: #86efac;
+      --error: #fca5a5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 32px 20px;
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      color: var(--text);
+      background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.18), transparent), var(--background);
+    }
+
+    main {
+      width: 100%;
+      max-width: 440px;
+    }
+
+    header {
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.6rem, 5vw, 1.95rem);
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+    }
+
+    header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    header p + p { margin-top: 4px; }
+
+    .card {
+      padding: clamp(20px, 6vw, 32px);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .form-group { margin-bottom: 18px; }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 500;
+    }
+
+    .required { color: var(--error); }
+
+    input,
+    button {
+      width: 100%;
+      font: inherit;
+      border-radius: 10px;
+    }
+
+    input {
+      padding: 12px 14px;
+      color: var(--text);
+      background: var(--background);
+      border: 1px solid var(--border);
+    }
+
+    input::placeholder { color: #85859d; }
+
+    input:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    button {
+      margin-top: 4px;
+      padding: 13px 10px;
+      color: #fff;
+      background: var(--accent);
+      border: 0;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover:enabled { background: var(--accent-hover); }
+    button:disabled { opacity: 0.7; cursor: wait; }
+
+    .message {
+      margin: 0;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .message:not(:empty) { margin-top: 16px; padding: 12px; }
+    .message.success { color: var(--success); background: rgba(34, 197, 94, 0.1); }
+    .message.error { color: var(--error); background: rgba(239, 68, 68, 0.1); }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Baidu AI Startups Program</h1>
+      <p>Share your company and contact details to apply.</p>
+      <p lang="zh-CN">填写公司及联系信息，申请加入百度 AI 初创企业计划。</p>
+    </header>
+    <div class="card">
+      <form id="signup-form" action="https://formspree.io/f/xrpqrqrr" method="POST">
+        <input type="hidden" name="_subject" value="Baidu AI Startups Program - New application">
+        <input type="hidden" name="program" value="Baidu AI Startups Program">
+        <div class="form-group">
+          <label for="company">Company Name / <span lang="zh-CN">公司名称</span> <span class="required" aria-hidden="true">*</span></label>
+          <input type="text" id="company" name="company" autocomplete="organization" placeholder="Your startup name" required>
+        </div>
+        <div class="form-group">
+          <label for="firstName">First Name / <span lang="zh-CN">名</span> <span class="required" aria-hidden="true">*</span></label>
+          <input type="text" id="firstName" name="firstName" autocomplete="given-name" placeholder="First name" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name / <span lang="zh-CN">姓</span> <span class="required" aria-hidden="true">*</span></label>
+          <input type="text" id="lastName" name="lastName" autocomplete="family-name" placeholder="Last name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Work Email / <span lang="zh-CN">工作邮箱</span> <span class="required" aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number / <span lang="zh-CN">电话</span> <span class="required" aria-hidden="true">*</span></label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="Country code + phone number" required>
+        </div>
+        <button type="submit" id="submit-btn">Submit Application / <span lang="zh-CN">提交申请</span></button>
+      </form>
+      <p id="message" class="message" role="status" aria-atomic="true"></p>
+    </div>
+  </main>
+  <script>
+    const form = document.getElementById('signup-form');
+    const submitButton = document.getElementById('submit-btn');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      submitButton.disabled = true;
+      message.className = 'message';
+      message.textContent = '';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (!response.ok) {
+          message.className = 'message error';
+          message.textContent = 'Could not submit your application. Please try again. / 提交失败，请稍后重试。';
+          return;
+        }
+
+        form.reset();
+        message.className = 'message success';
+        message.textContent = 'Application submitted. Thank you. / 申请已提交，谢谢。';
+      } catch {
+        message.className = 'message error';
+        message.textContent = 'Network error. Please check your connection and try again. / 网络错误，请检查网络后重试。';
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
